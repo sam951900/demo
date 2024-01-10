@@ -1,8 +1,10 @@
-const clock = document.getElementById('clock');
-// const clock = document.querySelector('#clock');
+const http = require('http');
 
-setInterval(function(){
-    let date = new Date();
-    // console.log(date.toLocaleTimeString());
-    clock.innerHTML = date.toLocaleTimeString();
-},1000);
+const server = http.createServer((req,res) => {
+    res.writeHead(200,{"Content-Type": "text/plain"});
+    res.end("Hi Saurabh");
+});
+
+const PORT = 3000
+
+server.listen(PORT, ()=> console.log("Server is running on port " +PORT));
